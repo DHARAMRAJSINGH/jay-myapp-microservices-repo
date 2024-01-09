@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: employee
+  config:
+    import: configserver:http://localhost:8888
+  cloud:
+    config:
+      enabled: true
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}

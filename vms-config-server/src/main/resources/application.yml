@@ -1,0 +1,20 @@
+server:
+  port: 8888
+spring:
+  config:
+    name: configserver
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/employee/
+            - classpath:/user/
+            - classpath:/vmsgw/
+            - classpath:/auth/
+            - classpath:/eurekaserver/
+
+          fail-on-error: true
+
+  profiles:
+    active: native

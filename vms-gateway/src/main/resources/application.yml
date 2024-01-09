@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: vmsgw
+  config:
+    import: configserver:http://localhost:8888
+
+  cloud:
+    gateway:
+      routes:
+        - id: api
+          uri: lb://VMSGW
+          predicates:
+            - Path=/api/
+        - id: unknown
+          uri: http://localhost:0000/
+          predicates:
+            - Path=/**
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+
+
+logging:
+  level:
+    web: trace
+
+

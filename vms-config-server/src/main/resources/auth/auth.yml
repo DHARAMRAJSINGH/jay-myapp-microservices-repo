@@ -1,0 +1,9 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /identity-provider
+
+spring:
+  data:
+    mongodb:
+      database: vms-user-db
